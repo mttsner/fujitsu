@@ -10,12 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import static mttsner.fujitsu.model.City.Tallinn;
 import static mttsner.fujitsu.model.City.Tartu;
 import static mttsner.fujitsu.model.Vehicle.Bike;
-import static mttsner.fujitsu.model.Vehicle.Car;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DeliveryFeeServiceTest {
     // Empty mock station

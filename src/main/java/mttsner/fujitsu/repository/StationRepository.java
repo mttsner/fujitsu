@@ -1,6 +1,5 @@
 package mttsner.fujitsu.repository;
 
-import mttsner.fujitsu.model.City;
 import mttsner.fujitsu.model.Station;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

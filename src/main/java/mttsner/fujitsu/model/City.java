@@ -1,6 +1,5 @@
 package mttsner.fujitsu.model;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 public enum City {
