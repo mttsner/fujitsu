@@ -1,0 +1,30 @@
+{
+  "RBF": {
+    "Tallinn": {
+      "Car": "4",
+      "Scooter": "3.5",
+      "Bike": "3"
+    },
+    "Tartu": {
+      "Car": "3.5",
+      "Scooter": "3",
+      "Bike": "2.5"
+    },
+    "Parnu": {
+      "Car": "3",
+      "Scooter": "2.5",
+      "Bike": "2"
+    }
+  },
+  "ATEF": {
+    "Freezing": "1",
+    "Cold": "0.5"
+  },
+  "WSEF": {
+    "High": "0.5"
+  },
+  "WPEF": {
+    "Snowing": "1",
+    "Raining": "0.5"
+  }
+}
