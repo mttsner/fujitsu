@@ -14,19 +14,31 @@ public class DeliveryFeeService {
 
     private final Fees fees;
 
+    /**
+     * @param station Weather station data
+     * @param city City of delivery
+     * @param vehicle Vehicle used for delivery
+     * @param fees Rates charged based on different conditions
+     */
     public DeliveryFeeService(Station station, City city, Vehicle vehicle, Fees fees) {
         this.station = station;
         this.city = city;
         this.vehicle = vehicle;
         this.fees = fees;
     }
-
+    /**
+     * Calculates the regional base fee (RBF) applied to all deliveries.
+     * @return a BigDecimal representing the calculated RBF fee
+     */
     public BigDecimal calculateRBF() {
         return fees.RBF.get(city).get(vehicle);
     }
-
+    /**
+     * Calculates the extra fee based on air temperature (ATEF).
+     * The fee is applied when the vehicle is a Scooter or a Bike.
+     * @return a BigDecimal representing the calculated ATEF fee
+     */
     public BigDecimal calculateATEF() {
-        // Extra fee based on air temperature (ATEF) is paid when vehicle = Scooter or Bike
         if (vehicle != Scooter && vehicle != Bike) {
             return new BigDecimal("0");
         }
@@ -41,9 +53,12 @@ public class DeliveryFeeService {
         // No fee
         return new BigDecimal("0");
     }
-
+    /**
+     * Calculates the extra fee based on wind speed (WSEF).
+     * The fee is applied when the vehicle is a Bike.
+     * @return a BigDecimal representing the calculated WSEF fee
+     */
     public BigDecimal calculateWSEF() throws DeliveryFeeException {
-        // Extra fee based on wind speed (WSEF) in a specific city is paid in case Vehicle type = Bike
         if (vehicle != Bike) {
             return new BigDecimal("0");
         }
@@ -58,10 +73,12 @@ public class DeliveryFeeService {
         // No fee
         return new BigDecimal("0");
     }
-
+    /**
+     * Calculates the extra fee based on the weather phenomenon in a city (WPEF).
+     * The fee is applied when the vehicle is a Scooter or a Bike.
+     * @return a BigDecimal representing the calculated WPEF fee
+     */
     public BigDecimal calculateWPEF() throws DeliveryFeeException {
-        //Extra fee based on weather phenomenon (WPEF) in a specific city is paid in case Vehicle
-        //type = Scooter or Bike
         if (vehicle != Scooter && vehicle != Bike) {
             return new BigDecimal("0");
         }
@@ -82,7 +99,11 @@ public class DeliveryFeeService {
         // No fee
         return new BigDecimal("0");
     }
-
+    /**
+     * Calculates the total delivery fee.
+     * Which is made up from the RBF, ATEF, WPEF and WSEF.
+     * @return a BigDecimal representing the total calculated delivery fee
+     */
     public BigDecimal calculateDeliveryFee() throws DeliveryFeeException {
         return calculateRBF()
                 .add(calculateATEF())
