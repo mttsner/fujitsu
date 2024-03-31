@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface StationRepository extends  JpaRepository<Station, Integer>{
     @Query("SELECT station FROM Station station " +
             "WHERE station.name = :name " +
-            "ORDER BY station.observedAt " +
+            "ORDER BY station.observedAt DESC " +
             "LIMIT 1")
     Station findStationByName(String name);
 }
